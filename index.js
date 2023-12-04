@@ -54,11 +54,7 @@ let milliseconds = Math.floor(
     seconds * 1000
 );
 let task5 = document.querySelector(".task5");
-task5.innerHTML += `${time}мс ${days}д ${hours}ч ${minutes}м ${seconds}с ${milliseconds}мс`;
+task5.innerHTML += `${time}мс - ${days}д ${hours}ч ${minutes}мин ${seconds}сек ${milliseconds}мс`;
 console.log(
-  `${time}мс ${days}д ${hours}ч ${minutes}м ${seconds}с ${milliseconds}мс`
+  `${time}мс - ${days}д ${hours}ч ${minutes}мин ${seconds}сек ${milliseconds}мс`
 );
-// (days = Math.floor((t / (1000 * 60 * 60 * 24)) % 30)),
-//   (hours = Math.floor((t / (1000 * 60 * 60)) % 24)),
-//   (minutes = Math.floor((t / (1000 * 60)) % 60)),
-//   (seconds = Math.floor((t / 1000) % 60));
