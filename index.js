@@ -16,7 +16,7 @@ console.log("Площадь треугольника: ", S);
 
 // task3
 console.log("Задание 3:");
-let n = Math.floor(Math.random() * (67 - 12 + 1)) + 12;
+let n = Math.floor(Math.random() * (67 - 12 + 1) + 12);
 let task3 = document.querySelector(".task3");
 task3.innerHTML += `Случайное число от 12 до 67 : ${n}`;
 console.log("Случайное число от 12 до 67 :", n);
@@ -33,7 +33,7 @@ console.log(`rgba(${n1},${n2},${n3},${n4})`);
 
 // task5
 console.log("Задание 5:");
-let time = Math.floor(Math.random() * (2592000000 - 86400000 + 1)) + 86400000;
+let time = Math.floor(Math.random() * (2592000000 - 86400000 + 1) + 86400000);
 let days = Math.floor(time / (1000 * 60 * 60 * 24));
 let hours = Math.floor((time - days * 1000 * 60 * 60 * 24) / (1000 * 60 * 60));
 let minutes = Math.floor(
