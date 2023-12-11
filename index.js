@@ -11,72 +11,71 @@ console.log("Задача 1:", `Сумма целых чисел от 1 до 100
 // task2
 const task2 = document.querySelector(".task2");
 
-const age = Math.floor(Math.random() * 100) + 1;
+const digit = Math.floor(Math.random() * (30 - 1)) + 2;
 
-let resultStr = "";
-
-if (age > 59) {
-  resultStr = "Вам пора на пенсию";
-} else if (age >= 1 && age <= 17) {
-  resultStr = "Вам еще рано работать";
-} else if (age > 17 && age <= 59) {
-  resultStr = "Вам еще работать и работать";
+let factorial = 1;
+for (let i = 1; i <= digit; i++) {
+  factorial *= i;
 }
-task2.innerHTML += `Возраст ${age} - ${resultStr}`;
-console.log("Задача 2:", age, resultStr);
+
+task2.innerHTML += `Факториал от числа ${digit} = ${factorial}`;
+console.log("Задача 2:", `Факториал от числа ${digit} = ${factorial}`);
 
 // task3
 const task3 = document.querySelector(".task3");
-const n = Math.floor(Math.random() * 1000 - 1) + 1;
-let finalPhrase = "";
+const age = 10,
+  cost = 60000;
+let summ = 0,
+  summFather = 1200;
+countAges = 1;
 
-if (n > 10 && n < 20) {
-  finalPhrase = `На ветке сидели ${n} ворон`;
-} else {
-  if (n % 10 === 0 || (n % 10 >= 5 && n % 10 <= 9))
-    finalPhrase = `На ветке сидело ${n} ворон`;
-  else if (n % 10 === 1) finalPhrase = `На ветке сидела ${n} ворона`;
-  else if (n % 10 >= 2 || n % 10 <= 4)
-    finalPhrase = `На ветке сидели ${n} вороны`;
+while (summ < cost) {
+  summFather += 1200;
+  summ += 1000 + summFather;
+  countAges++;
 }
-task3.innerHTML += finalPhrase;
-console.log("Задача 3:", finalPhrase);
+
+task3.innerHTML += `Через ${countAges} лет у Вити появится велосипед`;
+console.log("Задача 3:", `Через ${countAges} лет у Вити появится велосипед`);
 
 // task4
 const task4 = document.querySelector(".task4");
-const a = Math.floor(Math.random() * 200 + 1) - 100;
-const b = Math.floor(Math.random() * 200 + 1) - 100;
-const c = Math.floor(Math.random() * 200 + 1) - 100;
-let max,
-  min = "";
+const words = ["Огород", "Шалаш"];
 
-if (a > b) {
-  if (a > c) {
-    max = `Наибольшее число ${a}`;
-  } else max = `Наибольшее число ${c}`;
-  if (b > c) min = `Наименьшее число ${c}`;
-  else min = `Наименьшее число ${b}`;
-} else {
-  if (b > c) max = `Наибольшее число ${b}`;
-  else max = `Наибольшее число ${c}`;
-  if (a > c) min = `Наименьшее число ${c}`;
-  else min = `Наименьшее число ${a}`;
-}
+console.log("Задача 4:");
+words.map((word) => {
+  let palindrom = true;
+  for (let i = 0; i < word.length / 2; i++) {
+    if (word[i].toLowerCase() !== word[word.length - 1 - i]) {
+      palindrom = false;
+    }
+  }
 
-task4.innerHTML += `a:${a} b:${b} c:${c} ${max} ${min}`;
-console.log("Задача 4:", "a:", a, "b:", b, "c:", c, max, min);
+  console.log(`Слово "${word}"${palindrom ? "" : " не"} является палиндромом`);
+  task4.innerHTML += `Слово "${word}"${
+    palindrom ? "" : " не"
+  } является палиндромом `;
+});
 
 // task5
 const task5 = document.querySelector(".task5");
-const apple = Math.floor(Math.random() * 11 - 1) + 1;
-const orange = Math.floor(Math.random() * 11 - 1) + 1;
-const weightApple = 100;
-const weightOrange = 150;
-let text = "";
-if (apple * weightApple > orange * weightOrange) text = "Бери яблоки";
-else text = "Бери апельсины";
-if (apple * weightApple == 0 && orange * weightOrange == 0)
-  text = "Бери уже что нибудь";
+const randomDigit = Math.floor(Math.random() * 101);
+let choiceUser = undefined;
+// while (choiceUser !== randomDigit) {
+choiceUser = Number(prompt("введите число от 0 до 100"));
+console.log(choiceUser);
+if (choiceUser <= randomDigit - 5 || choiceUser <= randomDigit + 5) {
+  console.log("Горячо");
+} else if (choiceUser <= randomDigit - 10 || choiceUser <= randomDigit + 10) {
+  console.log("Тепло");
+} else console.log("Холодно");
+// }
 
-task5.innerHTML += `Яблок: ${apple}, Апельсинов:${orange} ${text}`;
-console.log("Задача 5:", "Яблок:", apple, "Апельсинов:", orange, text);
+task5.innerHTML += ` ${randomDigit}, `;
+console.log(randomDigit);
+
+// var random = Math.floor(Math.random() * (max - min + 1)) + min;
+// число угадано - программа останавливается и говорит, что пользователь выиграл
+// число отличается на 5 пунктов (n-5 <= n <= n+5) - программа говорит "горячо"
+// число отличается на 10 пунктов (n-10 <= n <= n+10) - программа говорит "тепло"
+// в остальных случаях программа говорит "холодно".
