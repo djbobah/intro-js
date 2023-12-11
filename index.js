@@ -1,14 +1,12 @@
 // task1
-console.log(
-  "Задача 1:",
-  (5 >= 7 || "javascript" != "java") && !(11 * 3 == 99 && true)
-); //true
-// выполнение
-// (5 >= 7 || "javascript" != "java") && !(11 * 3 == 99 && true);
-// (false  ||             true      ) && !(     fasle   && true)
-//        true                        && !false
-//        true                        &&  true
-//                                   true
+const task1 = document.querySelector(".task1");
+let sum = 0;
+for (let i = 1; i <= 1000; i++) {
+  sum += i;
+}
+
+task1.innerHTML += `Задача 1: Сумма целых чисел от 1 до 1000 = ${sum}`;
+console.log("Задача 1:", `Сумма целых чисел от 1 до 1000 = ${sum}`);
 
 // task2
 const task2 = document.querySelector(".task2");
