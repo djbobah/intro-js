@@ -12,6 +12,9 @@
       padding: 10px;
       border-radius: 10px;
     }
+    .answer {
+      margin-top: 15px;
+    }
   </style>
   <body>
     <h3>Задача 1</h3>
@@ -61,7 +64,11 @@
       программа повторно продолжает спрашивать число, пока пользователь его не
       угадает.
     </p>
-    <div>Ответ: <code class="task5"> </code></div>
+    <div class="game">
+      <input type="text" placeholder="Введите число" />
+      <button class="btn" onclick="check()">Проверить</button>
+    </div>
+    <div class="answer">Ответ: <code class="task5"> </code></div>
     <script src="index.js"></script>
   </body>
 </html>
