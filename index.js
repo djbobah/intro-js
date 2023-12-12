@@ -61,17 +61,18 @@ words.map((word) => {
 const task5 = document.querySelector(".task5");
 const randomDigit = Math.floor(Math.random() * 101);
 let choiceUser = undefined;
-// while (choiceUser !== randomDigit) {
-choiceUser = Number(prompt("введите число от 0 до 100"));
-console.log(choiceUser);
-if (choiceUser <= randomDigit - 5 || choiceUser <= randomDigit + 5) {
-  console.log("Горячо");
-} else if (choiceUser <= randomDigit - 10 || choiceUser <= randomDigit + 10) {
-  console.log("Тепло");
-} else console.log("Холодно");
-// }
+while (choiceUser !== randomDigit) {
+  choiceUser = Number(prompt("введите число от 0 до 100"));
+  // console.log(choiceUser);
 
-task5.innerHTML += ` ${randomDigit}, `;
+  if (choiceUser >= randomDigit - 5 && choiceUser <= randomDigit + 5) {
+    console.log("Горячо");
+  } else if (choiceUser >= randomDigit - 10 && choiceUser <= randomDigit + 10) {
+    console.log("Тепло");
+  } else console.log("Холодно");
+}
+
+task5.innerHTML += ` ${randomDigit} `;
 console.log(randomDigit);
 
 // var random = Math.floor(Math.random() * (max - min + 1)) + min;
