@@ -51,10 +51,10 @@ words.map((word) => {
     }
   }
 
-  console.log(`Слово "${word}"${palindrom ? "" : " не"} является палиндромом`);
+  console.log(`Слово "${word}"${palindrom ? "" : " не"} является палиндромом;`);
   task4.innerHTML += `Слово "${word}"${
     palindrom ? "" : " не"
-  } является палиндромом `;
+  } является палиндромом; `;
 });
 
 // task5
@@ -76,12 +76,13 @@ const check = () => {
   if (Number(number.value) === randomDigit) {
     answer.style.display = "";
     // return true;
+    userAnswer.innerHTML += ` ${number.value} Правильно!!!`;
     console.log("answer", randomDigit);
   } else if (
     Number(number.value) >= randomDigit - 5 &&
     Number(number.value) <= randomDigit + 5
   ) {
-    userAnswer.innerHTML += ` ${number.value} `;
+    userAnswer.innerHTML += ` ${number.value} Горячо;`;
     number.value = "";
     number.focus();
     console.log("Горячо");
@@ -90,13 +91,13 @@ const check = () => {
     Number(number.value) >= randomDigit - 10 &&
     Number(number.value) <= randomDigit + 10
   ) {
-    userAnswer.innerHTML += ` ${number.value} `;
+    userAnswer.innerHTML += ` ${number.value} Тепло;`;
     number.value = "";
     number.focus();
     console.log("Тепло");
     return "Тепло";
   } else {
-    userAnswer.innerHTML += ` ${number.value} `;
+    userAnswer.innerHTML += ` ${number.value} Холодно;`;
     number.value = "";
     number.focus();
     console.log("Холодно");
@@ -108,7 +109,7 @@ const check = () => {
 
 task5.innerHTML += ` ${randomDigit} `;
 
-console.log(randomDigit);
+// console.log(randomDigit);
 
 // var random = Math.floor(Math.random() * (max - min + 1)) + min;
 // число угадано - программа останавливается и говорит, что пользователь выиграл
