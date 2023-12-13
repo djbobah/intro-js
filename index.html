@@ -65,10 +65,15 @@
       угадает.
     </p>
     <div class="game">
-      <input type="text" placeholder="Введите число" />
+      <input type="number" class="number" placeholder="Введите число" />
       <button class="btn" onclick="check()">Проверить</button>
     </div>
-    <div class="answer">Ответ: <code class="task5"> </code></div>
+    <div class="userAnswer" style="display: none">
+      <b>Введенное(ые) числа:</b>
+    </div>
+    <div class="answer" style="display: none">
+      Ответ: <code class="task5"> </code>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

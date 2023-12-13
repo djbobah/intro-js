@@ -59,20 +59,55 @@ words.map((word) => {
 
 // task5
 const task5 = document.querySelector(".task5");
+const answer = document.querySelector(".answer");
+const userAnswer = document.querySelector(".userAnswer");
+
+const number = document.querySelector(".number");
+// const btn = document.querySelector(".btn");
 const randomDigit = Math.floor(Math.random() * 101);
 let choiceUser = undefined;
 // while (choiceUser !== randomDigit) {
-choiceUser = Number(prompt("введите число от 0 до 100"));
+// choiceUser = Number(prompt("введите число от 0 до 100"));
 // console.log(choiceUser);
 
-if (choiceUser >= randomDigit - 5 && choiceUser <= randomDigit + 5) {
-  console.log("Горячо");
-} else if (choiceUser >= randomDigit - 10 && choiceUser <= randomDigit + 10) {
-  console.log("Тепло");
-} else console.log("Холодно");
+const check = () => {
+  // console.log("check", number.value);
+  userAnswer.style.display = "";
+  if (Number(number.value) === randomDigit) {
+    answer.style.display = "";
+    // return true;
+    console.log("answer", randomDigit);
+  } else if (
+    Number(number.value) >= randomDigit - 5 &&
+    Number(number.value) <= randomDigit + 5
+  ) {
+    userAnswer.innerHTML += ` ${number.value} `;
+    number.value = "";
+    number.focus();
+    console.log("Горячо");
+    return "Горячо";
+  } else if (
+    Number(number.value) >= randomDigit - 10 &&
+    Number(number.value) <= randomDigit + 10
+  ) {
+    userAnswer.innerHTML += ` ${number.value} `;
+    number.value = "";
+    number.focus();
+    console.log("Тепло");
+    return "Тепло";
+  } else {
+    userAnswer.innerHTML += ` ${number.value} `;
+    number.value = "";
+    number.focus();
+    console.log("Холодно");
+    return "Холодно";
+  }
+};
+
 // }
 
 task5.innerHTML += ` ${randomDigit} `;
+
 console.log(randomDigit);
 
 // var random = Math.floor(Math.random() * (max - min + 1)) + min;
