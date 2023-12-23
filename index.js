@@ -1,118 +1,121 @@
 // task1
 const task1 = document.querySelector(".task1");
-let sum = 0;
-for (let i = 1; i <= 1000; i++) {
-  sum += i;
-}
 
-task1.innerHTML += `Задача 1: Сумма целых чисел от 1 до 1000 = ${sum}`;
-console.log("Задача 1:", `Сумма целых чисел от 1 до 1000 = ${sum}`);
+const pet = {
+  name: "Бобик",
+  type: "пес",
+  sound: "гав",
+  say: function (phrase) {
+    return `${this.type} ${this.name} говорит ${
+      phrase === "" ? this.sound : phrase
+    }`;
+  },
+};
+
+// console.log(pet.name);
+// console.log(pet.say("мяу"));
+task1.innerHTML += `Задача 1: pet.say("мяу") = ${pet.say("мяу")}`;
+console.log(`Задача 1: pet.say("мяу") = ${pet.say("мяу")}`);
 
 // task2
 const task2 = document.querySelector(".task2");
-
-const digit = Math.floor(Math.random() * (30 - 1)) + 2;
-
-let factorial = 1;
-for (let i = 1; i <= digit; i++) {
-  factorial *= i;
+const fruits = {
+  potato: "овощи",
+  carrot: "овощи",
+  banana: "фрукты",
+  orange: "фрукты",
+  apple: "фрукты",
+  strawberry: "ягоды",
+  tomato: "овощи",
+  melon: "фрукты",
+  lemon: "фрукты",
+};
+let sumVegetables = {};
+for (let fruit in fruits) {
+  if (sumVegetables[fruits[fruit]]) {
+    sumVegetables[fruits[fruit]]++;
+  } else sumVegetables[fruits[fruit]] = 1;
 }
-
-task2.innerHTML += `Факториал от числа ${digit} = ${factorial}`;
-console.log("Задача 2:", `Факториал от числа ${digit} = ${factorial}`);
+task2.innerHTML += `Задача 2: ${JSON.stringify(sumVegetables)}`;
+console.log("Задача 2: ", sumVegetables);
 
 // task3
+
 const task3 = document.querySelector(".task3");
-const age = 10,
-  cost = 60000;
-let summ = 0,
-  summFather = 1200;
-countAges = 1;
+const task3_1 = document.querySelector(".task3_1");
+const cars = {
+  lada: {
+    color: "red",
+    country: "Russia",
+    year: 2000,
+  },
+  opel: {
+    color: "black",
+    country: "Germany",
+    year: 2010,
+  },
+  toyota: {
+    color: "silver",
+    country: "Japan",
+    year: 2011,
+  },
+  honda: {
+    color: "white",
+    country: "Japan",
+    year: 2020,
+  },
+  nissan: {
+    color: "grey",
+    country: "Japan",
+    year: 2019,
+  },
+  volkswagen: {
+    color: "blue",
+    country: "German",
+    year: 2005,
+  },
+  BMV: {
+    color: "red",
+    country: "German",
+    year: 2006,
+  },
+  audi: {
+    color: "blue",
+    country: "German",
+    year: 2007,
+  },
+  citroen: {
+    color: "lightblue",
+    country: "France",
+    year: 2009,
+  },
+  renault: {
+    color: "yellow",
+    country: "France",
+    year: 2013,
+  },
+};
+let sortedCars = [];
 
-while (summ < cost) {
-  summFather += 1200;
-  summ += 1000 + summFather;
-  countAges++;
+for (let car in cars) {
+  sortedCars.push([car, cars[car]]);
 }
-
-task3.innerHTML += `Через ${countAges} лет у Вити появится велосипед`;
-console.log("Задача 3:", `Через ${countAges} лет у Вити появится велосипед`);
-
-// task4
-const task4 = document.querySelector(".task4");
-const words = ["Огород", "Шалаш"];
-
-console.log("Задача 4:");
-words.map((word) => {
-  let palindrom = true;
-  for (let i = 0; i < word.length / 2; i++) {
-    if (word[i].toLowerCase() !== word[word.length - 1 - i]) {
-      palindrom = false;
-    }
-  }
-
-  console.log(`Слово "${word}"${palindrom ? "" : " не"} является палиндромом;`);
-  task4.innerHTML += `Слово "${word}"${
-    palindrom ? "" : " не"
-  } является палиндромом; `;
+sortedCars.sort(function (a, b) {
+  return a[1].year - b[1].year;
 });
 
-// task5
-const task5 = document.querySelector(".task5");
-const answer = document.querySelector(".answer");
-const userAnswer = document.querySelector(".userAnswer");
+console.log("Задача 3:");
+console.log("Самые старые автомобили:");
+for (let i = 0; i < 3; i++) {
+  console.log(sortedCars[i][0], sortedCars[i][1].year, "года выпуска");
+  task3.innerHTML += `${sortedCars[i][0]} ${sortedCars[i][1].year} года выпуска;
+  `;
+}
 
-const number = document.querySelector(".number");
-// const btn = document.querySelector(".btn");
-const randomDigit = Math.floor(Math.random() * 101);
-let choiceUser = undefined;
-// while (choiceUser !== randomDigit) {
-// choiceUser = Number(prompt("введите число от 0 до 100"));
-// console.log(choiceUser);
-
-const check = () => {
-  // console.log("check", number.value);
-  userAnswer.style.display = "";
-  if (Number(number.value) === randomDigit) {
-    answer.style.display = "";
-    // return true;
-    userAnswer.innerHTML += ` ${number.value} Правильно!!!`;
-    console.log("answer", randomDigit);
-  } else if (
-    Number(number.value) >= randomDigit - 5 &&
-    Number(number.value) <= randomDigit + 5
-  ) {
-    userAnswer.innerHTML += ` ${number.value} Горячо;`;
-    number.value = "";
-    number.focus();
-    console.log("Горячо");
-    return "Горячо";
-  } else if (
-    Number(number.value) >= randomDigit - 10 &&
-    Number(number.value) <= randomDigit + 10
-  ) {
-    userAnswer.innerHTML += ` ${number.value} Тепло;`;
-    number.value = "";
-    number.focus();
-    console.log("Тепло");
-    return "Тепло";
-  } else {
-    userAnswer.innerHTML += ` ${number.value} Холодно;`;
-    number.value = "";
-    number.focus();
-    console.log("Холодно");
-    return "Холодно";
-  }
-};
-
-// }
-
-task5.innerHTML += ` ${randomDigit} `;
-
-// console.log(randomDigit);
-
-// var random = Math.floor(Math.random() * (max - min + 1)) + min;
-// число угадано - программа останавливается и говорит, что пользователь выиграл
-// число отличается на 5 пунктов (n-5 <= n <= n+5) - программа говорит "горячо"
-// число отличается на 10 пунктов (n-10 <= n <= n+10) - программа говорит "тепло"
-// в остальных случаях программа говорит "холодно".
+console.log("Самые молодые автомобили:");
+for (let i = sortedCars.length - 3; i < sortedCars.length; i++) {
+  console.log(sortedCars[i][0], sortedCars[i][1].year, "года выпуска");
+  task3_1.innerHTML += `${sortedCars[i][0]} ${sortedCars[i][1].year} года выпуска;
+  `;
+}
+// console.log(sortedCars);
